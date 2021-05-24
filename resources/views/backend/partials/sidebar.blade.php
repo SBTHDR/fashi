@@ -15,14 +15,14 @@
     </div>
     <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
-                <a href="./dashboard.html">
+            <li class="{{ Route::is('admin') ? 'active' : '' }}">
+                <a href="{{ route('admin') }}">
                     <i class="nc-icon nc-bank"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li>
-                <a href="./icons.html">
+            <li class="{{ Route::is('banner.index') ? 'active' : '' }}">
+                <a href="{{ route('banner.index') }}">
                     <i class="nc-icon nc-atom"></i>
                     <p>Banner Management</p>
                 </a>
