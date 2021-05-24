@@ -3,7 +3,7 @@
 @section('title', 'All Banners')
 
 @section('content')
-<div class="content vh-100">
+<div class="content">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
