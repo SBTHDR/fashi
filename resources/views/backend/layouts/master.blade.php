@@ -52,9 +52,9 @@ Coded by www.creative-tim.com
 <script src="{{ asset('backend/assets/js/core/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/core/popper.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('backend/assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
+{{--<script src="{{ asset('backend/assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>--}}
 <!--  Google Maps Plugin    -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+{{--<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>--}}
 <!-- Chart JS -->
 <script src="{{ asset('backend/assets/js/plugins/chartjs.min.js') }}"></script>
 <!--  Notifications Plugin    -->
@@ -68,6 +68,7 @@ Coded by www.creative-tim.com
         demo.initChartsPages();
     });
 </script>
+
 </body>
 
 </html>
