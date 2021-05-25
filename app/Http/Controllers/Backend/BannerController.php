@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Banner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BannerController extends Controller
 {
@@ -35,7 +37,36 @@ class BannerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+           'title' => 'required',
+           'description' => 'nullable',
+           'photo' => 'required',
+           'status' => 'nullable|in:active,inactive',
+           'condition' => 'nullable|in:banner,promo',
+        ]);
+
+        $image = $request->file('photo');
+        $imagename = hexdec(uniqid());
+        $imageext = $image->getClientOriginalExtension();
+        $imagenamefullname = $imagename . '.' . $imageext;
+        $location = public_path('images/banner/');
+        $image->move($location, $imagenamefullname);
+
+        $slug = $request->slug = Str::slug($request->title);
+
+        Banner::insert([
+            'title' => $request->title,
+            'description' => $request->description,
+            'photo' => $imagenamefullname,
+            'slug' => $slug,
+            'status' => $request->status,
+            'condition' => $request->condition,
+        ]);
+
+        session()->flash('msg', 'Banner created successfully!');
+        return redirect()->route('banner.index');
+
     }
 
     /**

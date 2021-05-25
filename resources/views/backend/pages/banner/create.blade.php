@@ -11,12 +11,16 @@
                         <h5 class="card-title">Create a banner</h5>
                     </div>
                     <div class="card-body">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('banner.store') }}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Title</label>
                                         <input type="text" name="title" class="form-control" placeholder="Enter a banner title" value="{{ old('title') }}">
+                                        @error('title')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -26,6 +30,9 @@
                                     <div class="form-group">
                                         <label>Description</label>
                                         <textarea name="description" class="form-control textarea" placeholder="Enter a banner description">{{ old('description') }}</textarea>
+                                        @error('description')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -39,6 +46,9 @@
                                             <option value="active" {{ old('status') === 'active' ? 'selected' : '' }}>Active</option>
                                             <option value="inactive" {{ old('status') === 'inactive' ? 'selected' : '' }}>Inactive</option>
                                         </select>
+                                        @error('status')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -52,6 +62,9 @@
                                             <option value="banner" {{ old('condition') === 'banner' ? 'selected' : '' }}>Banner</option>
                                             <option value="promo" {{ old('condition') === 'promo' ? 'selected' : '' }}>Promo</option>
                                         </select>
+                                        @error('condition')
+                                        <small class="text-danger">{{ $message }}</small>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +72,10 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <label>Slider Image</label>
-                                    <input type="file" name="image" class="form-control">
+                                    <input type="file" name="photo" class="form-control">
+                                    @error('photo')
+                                    <small class="text-danger">{{ $message }}</small>
+                                    @enderror
                                 </div>
                             </div>
 
