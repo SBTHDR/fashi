@@ -47,9 +47,8 @@
                             </thead>
 
                             <tbody>
-
-                            <tr>
-                                @foreach($banners as $banner)
+                            @foreach($banners as $banner)
+                                <tr>
                                     <td>
                                         {{ $banner->title }}
                                     </td>
@@ -68,8 +67,8 @@
                                     <td>
                                         {{ $banner->condition }}
                                     </td>
-                                @endforeach
-                            </tr>
+                                </tr>
+                            @endforeach
 
                             </tbody>
                         </table>

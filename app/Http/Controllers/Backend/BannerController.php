@@ -56,7 +56,7 @@ class BannerController extends Controller
 
         $slug = $request->slug = Str::slug($request->title);
 
-        Banner::insert([
+        Banner::create([
             'title' => $request->title,
             'description' => $request->description,
             'image' => $imagenamefullname,
@@ -64,6 +64,8 @@ class BannerController extends Controller
             'status' => $request->status,
             'condition' => $request->condition,
         ]);
+
+        dd($request->all());
 
         session()->flash('msg', 'Banner created successfully!');
         return redirect()->route('banner.index');
