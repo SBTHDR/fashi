@@ -6,7 +6,16 @@
 <div class="content">
     <div class="row">
         <div class="col-md-12">
-            
+
+            @if(Session::has('msg'))
+                <div class="alert alert-success alert-dismissible fade show">
+                    <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="nc-icon nc-simple-remove"></i>
+                    </button>
+                    <span><b> Success - </b> {{ Session::get('msg') }}</span>
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title">Active Banner List</h4>
