@@ -44,6 +44,9 @@
                             <th>
                                 Condition
                             </th>
+                            <th>
+                                Action
+                            </th>
                             </thead>
 
                             <tbody>
@@ -66,6 +69,14 @@
                                     </td>
                                     <td>
                                         {{ $banner->condition }}
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('banner.destroy', $banner->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <a href="{{ route('banner.edit', $banner->id) }}" class="btn btn-dark btn-round btn-sm">Edit</a>
+                                            <button type="submit" class="btn btn-danger btn-round btn-sm">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach

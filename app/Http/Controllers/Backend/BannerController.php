@@ -42,7 +42,7 @@ class BannerController extends Controller
         $this->validate($request, [
            'title' => 'required',
            'description' => 'nullable',
-           'image' => 'required',
+           'image' => 'image',
            'status' => 'nullable|in:active,inactive',
            'condition' => 'nullable|in:banner,promo',
         ]);
@@ -89,7 +89,8 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $banner = Banner::findOrFail($id);
+        return view('backend.pages.banner.edit', compact('banner'));
     }
 
     /**
