@@ -19,7 +19,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <h4 class="card-title">Active Banner List</h4>
-                    <a href="{{ route('banner.create') }}" class="btn btn-primary">Create Banner</a>
+                    <a href="{{ route('banner.create') }}" class="btn btn-primary btn-round">Create Banner</a>
                 </div>
                 <div class="card-body">
                     <div class="">
@@ -36,31 +36,39 @@
                                 Description
                             </th>
                             <th>
-                                Photo
+                                Image
                             </th>
                             <th>
                                 Status
+                            </th>
+                            <th>
+                                Condition
                             </th>
                             </thead>
 
                             <tbody>
 
                             <tr>
-                                <td>
-                                    Dakota Rice
-                                </td>
-                                <td>
-                                    dakota-rice
-                                </td>
-                                <td>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, officia.
-                                </td>
-                                <td>
-                                    imgdefault.png
-                                </td>
-                                <td>
-                                    Active
-                                </td>
+                                @foreach($banners as $banner)
+                                    <td>
+                                        {{ $banner->title }}
+                                    </td>
+                                    <td>
+                                        {{ $banner->slug }}
+                                    </td>
+                                    <td>
+                                        {{ $banner->description }}
+                                    </td>
+                                    <td>
+                                        <img src="{{ asset('images/banner/' . $banner->image) }}" alt="" class="img-thumbnail" width="120px">
+                                    </td>
+                                    <td>
+                                        {{ $banner->status }}
+                                    </td>
+                                    <td>
+                                        {{ $banner->condition }}
+                                    </td>
+                                @endforeach
                             </tr>
 
                             </tbody>

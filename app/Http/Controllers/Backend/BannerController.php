@@ -16,7 +16,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        return view('backend.pages.banner.index');
+        $banners = Banner::all();
+        return view('backend.pages.banner.index', compact('banners'));
     }
 
     /**
@@ -41,12 +42,12 @@ class BannerController extends Controller
         $this->validate($request, [
            'title' => 'required',
            'description' => 'nullable',
-           'photo' => 'required',
+           'image' => 'required',
            'status' => 'nullable|in:active,inactive',
            'condition' => 'nullable|in:banner,promo',
         ]);
 
-        $image = $request->file('photo');
+        $image = $request->file('image');
         $imagename = hexdec(uniqid());
         $imageext = $image->getClientOriginalExtension();
         $imagenamefullname = $imagename . '.' . $imageext;
@@ -58,7 +59,7 @@ class BannerController extends Controller
         Banner::insert([
             'title' => $request->title,
             'description' => $request->description,
-            'photo' => $imagenamefullname,
+            'image' => $imagenamefullname,
             'slug' => $slug,
             'status' => $request->status,
             'condition' => $request->condition,

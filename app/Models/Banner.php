@@ -13,7 +13,7 @@ class Banner extends Model
         'title',
         'slug',
         'description',
-        'photo',
+        'image',
         'status',
         'condition',
     ];

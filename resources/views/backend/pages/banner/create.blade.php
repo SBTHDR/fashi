@@ -16,7 +16,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Title</label>
+                                        <label>Banner Title</label>
                                         <input type="text" name="title" class="form-control" placeholder="Enter a banner title" value="{{ old('title') }}">
                                         @error('title')
                                         <small class="text-danger">{{ $message }}</small>
@@ -28,7 +28,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Description</label>
+                                        <label>Banner Description</label>
                                         <textarea name="description" class="form-control textarea" placeholder="Enter a banner description">{{ old('description') }}</textarea>
                                         @error('description')
                                         <small class="text-danger">{{ $message }}</small>
@@ -40,7 +40,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Status</label>
+                                        <label>Banner Status</label>
                                         <select name="status" id="status" class="form-control">
                                             <option value="">---Select a banner status---</option>
                                             <option value="active" {{ old('status') === 'active' ? 'selected' : '' }}>Active</option>
@@ -56,7 +56,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label>Condition</label>
+                                        <label>Banner Condition</label>
                                         <select name="condition" id="condition" class="form-control">
                                             <option value="">---Select a banner condition---</option>
                                             <option value="banner" {{ old('condition') === 'banner' ? 'selected' : '' }}>Banner</option>
@@ -71,18 +71,18 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label>Slider Image</label>
-                                    <input type="file" name="photo" class="form-control">
-                                    @error('photo')
+                                    <label>Banner Image</label>
+                                    <input type="file" name="image" class="form-control">
+                                    @error('image')
                                     <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="update ml-auto">
+                            <div class="mt-3 d-flex justify-content-end">
+                                <div>
                                     <button type="submit" class="btn btn-primary btn-round">Create Banner</button>
-                                    <button type="submit" class="btn btn-danger btn-round">Cancel</button>
+                                    <a href="{{ route('banner.index') }}" class="btn btn-danger btn-round">Cancel</a>
                                 </div>
                             </div>
                         </form>
