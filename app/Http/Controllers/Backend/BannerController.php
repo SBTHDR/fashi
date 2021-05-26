@@ -65,8 +65,6 @@ class BannerController extends Controller
             'condition' => $request->condition,
         ]);
 
-        dd($request->all());
-
         session()->flash('msg', 'Banner created successfully!');
         return redirect()->route('banner.index');
 
